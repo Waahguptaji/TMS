@@ -6,6 +6,7 @@ import { OfficerLoginComponent } from './pages/officer-login/officer-login.compo
 import { CustomerDashboardComponent } from './pages/customer-dashboard/customer-dashboard.component';
 import { OfficerDashboardComponent } from './pages/officer-dashboard/officer-dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
+import { CustomerBookingComponent } from './pages/customer-booking/customer-booking.component';
 // import { BookingServiceComponent } from './pages/booking-service/booking-service.component';
 // import { TrackingComponent } from './pages/tracking/tracking.component';
 // import { PreviousBookingComponent } from './pages/previous-booking/previous-booking.component';
@@ -29,11 +30,11 @@ export const routes: Routes = [
     component: OfficerDashboardComponent,
     canActivate: [AuthGuard],
   },
-  // {
-  //   path: 'booking-service',
-  //   component: BookingServiceComponent,
-  //   canActivate: [AuthGuard],
-  // },
+  {
+    path: 'customer-booking',
+    component: CustomerBookingComponent,
+    canActivate: [AuthGuard],
+  },
   // { path: 'tracking', component: TrackingComponent, canActivate: [AuthGuard] },
   // {
   //   path: 'previous-booking',
