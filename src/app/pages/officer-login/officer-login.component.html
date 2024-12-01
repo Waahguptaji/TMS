@@ -1,0 +1,39 @@
+<!-- src/app/pages/officer-login/officer-login.component.html -->
+<div class="auth-container">
+    <div class="auth-header">
+        <h1>📦 TMS</h1>
+        <p>Officer Login Portal</p>
+    </div>
+
+    <form #officerLoginForm="ngForm" (ngSubmit)="handleOfficerLogin(officerLoginForm)">
+        <div class="form-group">
+            <label for="userId">Officer ID</label>
+            <input type="text" id="userId" name="userId" class="form-control"
+                placeholder="Enter your Officer ID (OFFICER001)" [(ngModel)]="userId" #userIdRef="ngModel" required />
+            <span class="error-message" *ngIf="userIdRef.invalid && userIdRef.touched">
+                Officer ID is required.
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control"
+                placeholder="Enter your password (Officer@123)" [(ngModel)]="password" #passwordRef="ngModel"
+                required />
+            <span class="error-message" *ngIf="passwordRef.invalid && passwordRef.touched">
+                Password is required.
+            </span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="officerLoginForm.invalid">
+            Login as Officer
+        </button>
+        <a routerLink="/" class="btn btn-secondary">
+            Switch to Customer Login
+        </a>
+    </form>
+
+    <div class="auth-links">
+        <p>Default credentials: OFFICER001 / Officer123</p>
+    </div>
+</div>

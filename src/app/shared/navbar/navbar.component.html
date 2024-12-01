@@ -1,0 +1,14 @@
+<nav class="navbar">
+    <div class="logo">📦 TMS</div>
+    <div class="nav-links-container" *ngIf="isAuthenticated">
+        <div class="user-welcome">Welcome, {{ username }}</div>
+        <div class="nav-links">
+            <a routerLink="/customer-dashboard" class="active">Home</a>
+            <a routerLink="/booking-service" id="bookingLink">Booking Service</a>
+            <a routerLink="/tracking" id="trackingLink">Tracking</a>
+            <a routerLink="/previous-booking" id="previousBookingLink">Previous Booking</a>
+            <a routerLink="/support" id="supportLink">Contact Support</a>
+            <a href="#" class="action-button logout-btn" (click)="logout()">Logout</a>
+        </div>
+    </div>
+</nav>

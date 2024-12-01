@@ -1,0 +1,60 @@
+/* src/app/shared/navbar/navbar.component.scss */
+
+/* Variables are assumed to be defined in global styles.scss */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--primary);
+  padding: 1rem 2rem;
+}
+
+.logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.user-welcome {
+  color: white;
+  font-size: 1rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.logout-btn {
+  background: #ef4444;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .nav-links-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
