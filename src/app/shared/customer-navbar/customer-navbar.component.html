@@ -1,0 +1,14 @@
+<nav class="navbar">
+    <div class="logo">📦 TMS</div>
+    <div class="nav-links-container">
+        <div class="user-welcome">Welcome, {{ username }}</div>
+        <div class="nav-links">
+            <a routerLink="/customer-dashboard">Home</a>
+            <a routerLink="/customer-booking">Booking Service</a>
+            <a routerLink="/tracking">Tracking</a>
+            <a routerLink="/previous-booking">Previous Booking</a>
+            <a routerLink="/support">Contact Support</a>
+            <a href="javascript:void(0)" (click)="logout()" class="action-button logout-btn">Logout</a>
+        </div>
+    </div>
+</nav>

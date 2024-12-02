@@ -1,4 +1,3 @@
-// src/app/pages/customer-booking/customer-booking.component.ts
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -7,17 +6,18 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from '../../shared/navbar/navbar.component';
+
 import { Router } from '@angular/router';
-import { BookingService } from '../../services/booking.service';
+import { CustomerBookingService } from '../../services/customer-booking.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomerNavbarComponent } from '../../shared/customer-navbar/customer-navbar.component';
 
 @Component({
   selector: 'app-customer-booking',
   standalone: true,
   imports: [
     CommonModule,
-    NavbarComponent,
+    CustomerNavbarComponent,
     HttpClientModule,
     ReactiveFormsModule,
   ],
@@ -30,7 +30,7 @@ export class CustomerBookingComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private bookingService: BookingService
+    private customerBookingService: CustomerBookingService
   ) {
     this.bookingForm = this.fb.group({
       senderName: ['', Validators.required],
@@ -147,7 +147,7 @@ export class CustomerBookingComponent implements OnInit {
   onSubmit(): void {
     if (this.bookingForm.valid) {
       const bookingData = this.bookingForm.value;
-      this.bookingService.createBooking(bookingData).subscribe({
+      this.customerBookingService.createBooking(bookingData).subscribe({
         next: () => {
           alert('Parcel booked successfully!');
           this.bookingForm.reset({

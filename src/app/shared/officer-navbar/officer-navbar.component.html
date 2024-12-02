@@ -1,0 +1,14 @@
+<nav class="navbar">
+    <div class="logo">📦 TMS</div>
+    <div class="nav-links-container">
+        <div class="user-welcome">Welcome, {{ username }}</div>
+        <div class="nav-links">
+            <a routerLink="/officer-dashboard">Home</a>
+            <a routerLink="/officer-tracking">Tracking</a>
+            <a routerLink="/delivery-status">Delivery Status</a>
+            <a routerLink="/pickup-scheduling">Pickup Scheduling</a>
+            <a routerLink="/officer-bookings">Previous Bookings</a>
+            <a href="javascript:void(0)" (click)="logout()" class="action-button logout-btn">Logout</a>
+        </div>
+    </div>
+</nav>

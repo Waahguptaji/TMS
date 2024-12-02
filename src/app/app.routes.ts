@@ -7,6 +7,8 @@ import { CustomerDashboardComponent } from './pages/customer-dashboard/customer-
 import { OfficerDashboardComponent } from './pages/officer-dashboard/officer-dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CustomerBookingComponent } from './pages/customer-booking/customer-booking.component';
+import { OfficerBookingsComponent } from './pages/officer-bookings/officer-bookings.component';
+import { OfficerTrackingComponent } from './pages/officer-tracking/officer-tracking.component';
 // import { BookingServiceComponent } from './pages/booking-service/booking-service.component';
 // import { TrackingComponent } from './pages/tracking/tracking.component';
 // import { PreviousBookingComponent } from './pages/previous-booking/previous-booking.component';
@@ -35,7 +37,16 @@ export const routes: Routes = [
     component: CustomerBookingComponent,
     canActivate: [AuthGuard],
   },
-  // { path: 'tracking', component: TrackingComponent, canActivate: [AuthGuard] },
+  {
+    path: 'officer-bookings',
+    component: OfficerBookingsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'officer-tracking',
+    component: OfficerTrackingComponent,
+    canActivate: [AuthGuard],
+  },
   // {
   //   path: 'previous-booking',
   //   component: PreviousBookingComponent,

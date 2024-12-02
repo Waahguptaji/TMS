@@ -1,16 +1,15 @@
-// src/app/pages/customer-dashboard/customer-dashboard.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { CountUpModule } from 'ngx-countup';
+import { CustomerNavbarComponent } from '../../shared/customer-navbar/customer-navbar.component';
 
 @Component({
   selector: 'app-customer-dashboard',
   standalone: true,
   templateUrl: './customer-dashboard.component.html',
   styleUrls: ['./customer-dashboard.component.scss'],
-  imports: [CommonModule, RouterLink, NavbarComponent, CountUpModule],
+  imports: [CommonModule, RouterLink, CustomerNavbarComponent, CountUpModule],
 })
 export class CustomerDashboardComponent implements OnInit {
   // Statistics

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { CountUpModule } from 'ngx-countup';
+import { OfficerNavbarComponent } from '../../shared/officer-navbar/officer-navbar.component';
 
 @Component({
   selector: 'app-officer-dashboard',
@@ -11,7 +11,7 @@ import { CountUpModule } from 'ngx-countup';
   styleUrls: ['./officer-dashboard.component.scss'],
   imports: [
     CommonModule,
-    NavbarComponent,
+    OfficerNavbarComponent,
     CountUpModule, // Import CountUpModule here
   ],
 })

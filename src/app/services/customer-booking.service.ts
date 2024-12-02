@@ -19,7 +19,7 @@ interface BookingData {
 @Injectable({
   providedIn: 'root',
 })
-export class BookingService {
+export class CustomerBookingService {
   private apiUrl = 'https://your-api-endpoint.com/bookings'; // Replace with your API URL
 
   constructor(private http: HttpClient) {}
