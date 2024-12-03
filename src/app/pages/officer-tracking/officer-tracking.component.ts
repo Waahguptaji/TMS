@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { OfficerTrackingService } from '../../services/officer-tracking.service';
-import { Router, RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { debounceTime, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,7 +23,6 @@ interface Parcel {
   standalone: true,
   imports: [
     CommonModule,
-    RouterModule,
     OfficerNavbarComponent,
     HttpClientModule,
     ReactiveFormsModule,

@@ -1,4 +1,4 @@
-// src/app/pages/support/support.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomerNavbarComponent } from '../../shared/customer-navbar/customer-navbar.component';
@@ -20,3 +20,4 @@ export class SupportComponent implements OnInit {
     }
   }
 }
+

@@ -1,0 +1,91 @@
+.pickup-container {
+  max-width: 800px;
+  margin: 6rem auto 3rem;
+  padding: 2rem;
+}
+
+.search-section {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+}
+
+.search-section h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.search-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+}
+
+.action-button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background-color: var(--primary-dark);
+}
+
+.booking-details {
+  margin-top: 2rem;
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.detail-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.label {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.schedule-form {
+  margin-top: 2rem;
+}
+
+.error-message {
+  margin-top: 1rem;
+  color: var(--error);
+}
+
+.success-message {
+  margin-top: 1rem;
+  color: var(--success);
+}

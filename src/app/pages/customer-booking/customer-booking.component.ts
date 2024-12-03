@@ -12,6 +12,7 @@ import { CustomerBookingService } from '../../services/customer-booking.service'
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerNavbarComponent } from '../../shared/customer-navbar/customer-navbar.component';
 
+
 @Component({
   selector: 'app-customer-booking',
   standalone: true,
@@ -77,7 +78,6 @@ export class CustomerBookingComponent implements OnInit {
     let baseCharge = 50; // Base charge in ₹
     let packagingCharge = 0;
     let deliveryCharge = 0;
-
     // Calculate Packaging Charge
     switch (packaging) {
       case 'standard':

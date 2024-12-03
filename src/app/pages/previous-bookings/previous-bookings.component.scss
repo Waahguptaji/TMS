@@ -1,0 +1,57 @@
+.bookings-container {
+  max-width: 1000px;
+  margin: 6rem auto 3rem;
+  padding: 2rem;
+}
+
+.bookings-container h2 {
+  color: var(--text);
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.bookings-table th,
+.bookings-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.bookings-table th {
+  background-color: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.bookings-table tbody tr:hover {
+  background-color: var(--primary-light);
+  color: white;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pagination .action-button {
+  padding: 0.5rem 1rem;
+}
+
+#pageInfo {
+  font-size: 1rem;
+  color: var(--text-light);
+}

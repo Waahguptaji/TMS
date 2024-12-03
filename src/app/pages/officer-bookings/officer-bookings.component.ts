@@ -48,12 +48,12 @@ export class OfficerBookingsComponent implements OnInit {
     this.loadUserInfo();
     this.fetchBookings();
 
-    // Optional: Trigger search on form value changes with debounce
+    
     this.bookingForm.valueChanges
       .pipe(
         debounceTime(300),
         switchMap(() => {
-          this.currentPage = 1; // Reset to first page on new search
+          this.currentPage = 1; 
           return of(this.fetchBookings());
         })
       )

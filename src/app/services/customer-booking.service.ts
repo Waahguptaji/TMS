@@ -14,6 +14,8 @@ interface BookingData {
   description: string;
   packaging: string;
   deliverySpeed: string;
+
+  //pickup date pickuptime
 }
 
 @Injectable({

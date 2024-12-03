@@ -10,6 +10,10 @@ import { CustomerBookingComponent } from './pages/customer-booking/customer-book
 import { OfficerBookingsComponent } from './pages/officer-bookings/officer-bookings.component';
 import { OfficerTrackingComponent } from './pages/officer-tracking/officer-tracking.component';
 import { SupportComponent } from './pages/support/support.component';
+import { PreviousBookingsComponent } from './pages/previous-bookings/previous-bookings.component';
+import { CustomerTrackingComponent } from './pages/customer-tracking/customer-tracking.component';
+import { DeliveryStatusComponent } from './pages/delivery-status/delivery-status.component';
+import { PickupSchedulingComponent } from './pages/pickup-scheduling/pickup-scheduling.component';
 // import { BookingServiceComponent } from './pages/booking-service/booking-service.component';
 // import { TrackingComponent } from './pages/tracking/tracking.component';
 // import { PreviousBookingComponent } from './pages/previous-booking/previous-booking.component';
@@ -48,31 +52,26 @@ export const routes: Routes = [
     component: OfficerTrackingComponent,
     canActivate: [AuthGuard],
   },
+  {
+    path: 'customer-tracking',
+    component: CustomerTrackingComponent,
+    canActivate: [AuthGuard],
+  },
 
-  // {
-  //   path: 'previous-booking',
-  //   component: PreviousBookingComponent,
-  //   canActivate: [AuthGuard],
-  // },
+  {
+    path: 'previous-booking',
+    component: PreviousBookingsComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'support', component: SupportComponent, canActivate: [AuthGuard] },
-  // {
-  //   path: 'officer-tracking',
-  //   component: OfficerTrackingComponent,
-  //   canActivate: [AuthGuard],
-  // },
-  // {
-  //   path: 'delivery-status',
-  //   component: DeliveryStatusComponent,
-  //   canActivate: [AuthGuard],
-  // },
-  // {
-  //   path: 'pickup-scheduling',
-  //   component: PickupSchedulingComponent,
-  //   canActivate: [AuthGuard],
-  // },
-  // {
-  //   path: 'officer-bookings',
-  //   component: OfficerBookingsComponent,
-  //   canActivate: [AuthGuard],
-  // },
+  {
+    path: 'delivery-status',
+    component: DeliveryStatusComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'pickup-scheduling',
+    component: PickupSchedulingComponent,
+    canActivate: [AuthGuard],
+  },
 ];
