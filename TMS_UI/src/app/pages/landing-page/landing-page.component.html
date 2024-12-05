@@ -1,65 +1,141 @@
 <div class="landing-page">
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-      <div class="logo">Parcel Management</div>
-      <div class="nav-links">
-        <a routerLink="customer-login">Login</a>
-        <a routerLink="registration">Register</a>
-      </div>
-    </nav>
-  
-    <!-- Hero Section -->
-    <header class="hero">
-      <div class="hero-content">
-        <h1>Effortless Parcel Management</h1>
-        <p>Track, manage, and deliver parcels seamlessly with our reliable platform.</p>
-        <button class="cta">Get Started</button>
-      </div>
-    </header>
-  
-    <!-- Features Section -->
-    <section class="features">
-      <h2>Our Features</h2>
-      <div class="feature-cards">
-        <div class="card">
-          <i class="icon fa fa-map-marker-alt"></i>
-          <h3>Real-Time Tracking</h3>
-          <p>Monitor parcel locations with real-time updates.</p>
+  <nav class="navbar">
+    <div class="logo">📦 TMS</div>
+    <div class="nav-links">
+      <a (click)="scrollToSection('features')" href="javascript:void(0)">Features</a>
+      <a (click)="scrollToSection('about')" href="javascript:void(0)">About Us</a>
+      <a (click)="scrollToSection('contact')" href="javascript:void(0)">Contact Us</a>
+      <a routerLink="customer-login">Login</a>
+      <a routerLink="registration">Register</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Transforming Logistics Since 2010</h1>
+      <div class="hero-description">
+        <p class="tagline">Your Trusted Partner in Transport Management</p>
+        <p class="history">
+          Started as a small courier service, TMS has evolved into a comprehensive logistics solution provider.
+          With over a decade of excellence, we've successfully managed 1M+ deliveries across the nation,
+          setting new standards in transport management.
+        </p>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-number" [countUp]="yearsOfExcellence" [options]="{ duration: 2, suffix: '+' }">
+              0
+            </span>
+            <span class="stat-label">Years of Excellence</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" [countUp]="successfulDeliveries" [options]="{ duration: 2, suffix: '+' }">
+              0
+            </span>
+            <span class="stat-label">Successful Deliveries</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" [countUp]="happyCustomers" [options]="{ duration: 2, suffix: '+' }">
+              0
+            </span>
+            <span class="stat-label">Happy Customers</span>
+          </div>
         </div>
-        <div class="card">
-          <i class="icon fa fa-shield-alt"></i>
-          <h3>Secure Deliveries</h3>
-          <p>Ensure safe and accurate parcel deliveries every time.</p>
-        </div>
-        <div class="card">
-          <i class="icon fa fa-cogs"></i>
-          <h3>Easy Management</h3>
-          <p>Manage bookings and track deliveries with ease.</p>
-        </div>
       </div>
-    </section>
-  
-    <!-- About Section -->
-    <section class="about">
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <h2>Our Features</h2>
+    <div class="feature-cards">
+      <div class="card">
+        <i class="icon fa fa-map-marker-alt"></i>
+        <h3>Real-Time Tracking</h3>
+        <p>Monitor parcel locations with real-time updates.</p>
+      </div>
+      <div class="card">
+        <i class="icon fa fa-shield-alt"></i>
+        <h3>Secure Deliveries</h3>
+        <p>Ensure safe and accurate parcel deliveries every time.</p>
+      </div>
+      <div class="card">
+        <i class="icon fa fa-cogs"></i>
+        <h3>Easy Management</h3>
+        <p>Manage bookings and track deliveries with ease.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="about">
+    <div class="about-content">
       <h2>About Us</h2>
-      <p>
-        At Parcel Management, we revolutionize logistics with cutting-edge technology and customer-centric solutions. Our platform ensures seamless parcel management from booking to delivery.
+      <p class="main-text">
+        At Parcel Management, we revolutionize logistics with cutting-edge technology and customer-centric solutions.
+        Our platform ensures seamless parcel management from booking to delivery.
       </p>
-      <img src="assets/about-image.png" alt="About Us">
-    </section>
-  
-    <!-- Contact Section -->
-    <section class="contact">
-      <h2>Contact Us</h2>
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
-  </div>
-  
-  
-  
- 
+
+      <div class="mission-values">
+        <div class="section">
+          <h3>Our Mission</h3>
+          <p>To provide reliable, efficient, and innovative logistics solutions that connect businesses and people
+            worldwide.</p>
+        </div>
+
+        <div class="section">
+          <h3>Why Choose Us?</h3>
+          <ul class="benefits-list">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>24/7 Customer Support</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Nationwide Coverage</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Real-time Tracking Systems</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Secure Handling Guarantee</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Competitive Pricing</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="section achievements">
+          <h3>Our Achievements</h3>
+          <div class="achievement-grid">
+            <div class="achievement-item">
+              <span class="achievement-number">98%</span>
+              <span class="achievement-label">On-time Delivery</span>
+            </div>
+            <div class="achievement-item">
+              <span class="achievement-number">100+</span>
+              <span class="achievement-label">Cities Covered</span>
+            </div>
+            <div class="achievement-item">
+              <span class="achievement-number">24/7</span>
+              <span class="achievement-label">Support Available</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</div>

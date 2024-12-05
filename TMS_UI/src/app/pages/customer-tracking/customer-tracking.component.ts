@@ -5,7 +5,6 @@ import { CustomerNavbarComponent } from '../../shared/customer-navbar/customer-n
 import { HttpClientModule } from '@angular/common/http';
 import { TrackingService } from '../../services/customer-tracking.service';
 
-
 interface Booking {
   bookingId: string;
   bookingDate: string;
@@ -26,27 +25,26 @@ interface Booking {
   styleUrls: ['./customer-tracking.component.scss'],
 })
 export class CustomerTrackingComponent implements OnInit {
-  username: string = 'User';
   bookingIdInput: string = '';
   booking: Booking | null = null;
   showResult: boolean = false;
   errorMessage: string = '';
+  loading: boolean = false;
 
   constructor(private trackingService: TrackingService) {}
 
   ngOnInit(): void {
-    const userData = JSON.parse(localStorage.getItem('userData') || '{}');
-    if (userData && userData.name) {
-      this.username = userData.name;
-    }
+    // Initialize any required data
   }
 
   trackParcel(): void {
     this.errorMessage = '';
     this.showResult = false;
+    this.loading = true;
 
     if (!this.bookingIdInput) {
       this.errorMessage = 'Please enter a Booking ID.';
+      this.loading = false;
       return;
     }
 
@@ -55,14 +53,19 @@ export class CustomerTrackingComponent implements OnInit {
         this.booking = {
           bookingId: response.bookingId,
           bookingDate: response.pickupDate,
-          expectedDeliveryDate: this.calculateExpectedDelivery(response.deliverySpeed),
+          expectedDeliveryDate: this.calculateExpectedDelivery(
+            response.deliverySpeed
+          ),
           status: response.status,
         };
         this.showResult = true;
+        this.loading = false;
       },
-      error: () => {
+      error: (error) => {
+        console.error('Tracking failed:', error);
         this.errorMessage = 'Booking ID not found.';
         this.booking = null;
+        this.loading = false;
       },
     });
   }
@@ -86,6 +89,6 @@ export class CustomerTrackingComponent implements OnInit {
     }
 
     currentDate.setDate(currentDate.getDate() + daysToAdd);
-    return currentDate.toISOString().split('T')[0];
+    return currentDate.toISOString();
   }
 }

@@ -1,16 +1,28 @@
 <app-customer-navbar></app-customer-navbar>
 
 <main class="main-content">
-    <div class="mascot-container">
-        <div class="delivery-guy">
-            <div class="head"></div>
-            <div class="body">
-                <div class="package"></div>
+    <div class="robot-container">
+        <div class="robot">
+            <div class="head">
+                <div class="eyes">
+                    <div class="eye left"></div>
+                    <div class="eye right"></div>
+                </div>
+                <div class="antenna"></div>
             </div>
-            <div class="legs"></div>
+            <div class="body">
+                <div class="chest"></div>
+                <div class="arms">
+                    <div class="arm left"></div>
+                    <div class="arm right"></div>
+                </div>
+            </div>
         </div>
-        <div class="speech-bubble">Hey! Need help with your delivery?</div>
+        <div class="speech-bubble">
+            {{ robotMessage }}
+        </div>
     </div>
+
 
     <div class="company-overview">
         <h1>Welcome to Tata Management System</h1>

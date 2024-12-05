@@ -117,15 +117,17 @@
             <div class="form-row">
                 <div class="form-group">
                     <label for="pickupDate">Pick-Up Date</label>
-                    <input type="date" id="pickupDate" formControlName="pickupDate" required>
-                    <div class="error" *ngIf="bookingForm.get('pickupDate')?.invalid && bookingForm.get('pickupDate')?.touched">
+                    <input type="date" id="pickupDate" formControlName="pickupDate" [min]="getMinDate()" required>
+                    <div class="error"
+                        *ngIf="bookingForm.get('pickupDate')?.invalid && bookingForm.get('pickupDate')?.touched">
                         Pick-up date is required.
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="pickupTime">Pick-Up Time</label>
                     <input type="time" id="pickupTime" formControlName="pickupTime" required>
-                    <div class="error" *ngIf="bookingForm.get('pickupTime')?.invalid && bookingForm.get('pickupTime')?.touched">
+                    <div class="error"
+                        *ngIf="bookingForm.get('pickupTime')?.invalid && bookingForm.get('pickupTime')?.touched">
                         Pick-up time is required.
                     </div>
                 </div>
@@ -162,3 +164,6 @@
         </div>
     </form>
 </div>
+<app-payment-modal [show]="showPaymentModal" [amount]="totalAmount" (onSuccess)="handlePaymentSuccess()"
+    (onClose)="handlePaymentCancel()">
+</app-payment-modal>

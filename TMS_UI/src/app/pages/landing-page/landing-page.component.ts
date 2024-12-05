@@ -1,13 +1,23 @@
+import { CommonModule, ViewportScroller } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { CountUpModule } from 'ngx-countup';
 
 @Component({
   selector: 'app-landing-page',
-  standalone: true,
-  imports: [RouterLink,RouterLinkActive],
   templateUrl: './landing-page.component.html',
-  styleUrl: './landing-page.component.scss'
+  styleUrls: ['./landing-page.component.scss'],
+  standalone: true,
+  imports: [CountUpModule, RouterModule, CommonModule],
 })
 export class LandingPageComponent {
+  yearsOfExcellence: number = 13;
+  successfulDeliveries: number = 1000000;
+  happyCustomers: number = 50000;
 
+  constructor(private viewportScroller: ViewportScroller) {}
+
+  scrollToSection(elementId: string): void {
+    this.viewportScroller.scrollToAnchor(elementId);
+  }
 }

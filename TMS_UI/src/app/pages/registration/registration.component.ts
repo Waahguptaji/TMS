@@ -6,12 +6,30 @@ import { RegistrationService } from '../../services/registration.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
+interface UserResponse {
+  userId: string;
+  customerName: string;
+  email: string;
+  mobileNumber: string;
+  mailingAddress: string;
+  username: string;
+  password: string;
+  preferences: string;
+  preferredDeliveryTime: string;
+}
+
 @Component({
   selector: 'app-registration',
   standalone: true,
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss'],
-  imports: [FormsModule, CommonModule, RouterLink, HttpClientModule, MatSnackBarModule],
+  imports: [
+    FormsModule,
+    CommonModule,
+    RouterLink,
+    HttpClientModule,
+    MatSnackBarModule,
+  ],
 })
 export class RegistrationComponent {
   customerName: string = '';
@@ -69,18 +87,28 @@ export class RegistrationComponent {
       console.log('New User Data:', newUser);
 
       this.registrationService.register(newUser).subscribe({
-        next: () => {
-          this.showSuccessSnackBar('Registration successful!');
-          this.router.navigate(['/customer-login']);
+        next: (response: UserResponse) => {
+          const message = `
+            Registration successful!
+            Your Credentials:
+            Username: ${response.username}
+            User ID: ${response.userId}
+            Password: ${response.password}
+          `;
+          this.showSuccessSnackBar(message);
+
+          // Store user data
+          localStorage.setItem('userData', JSON.stringify(response));
+
+          // Navigate after 5 seconds
+          setTimeout(() => {
+            this.router.navigate(['/customer-login']);
+          }, 5000);
         },
         error: (error) => {
           this.showErrorSnackBar('Registration failed. Please try again.');
           console.error('Error:', error);
         },
-      });
-    } else {
-      Object.values(form.controls).forEach((control) => {
-        control.markAsTouched();
       });
     }
   }
@@ -108,7 +136,7 @@ export class RegistrationComponent {
   // SnackBar for success messages
   private showSuccessSnackBar(message: string): void {
     this.snackBar.open(message, 'Close', {
-      duration: 500000,
+      duration: 50000,
       horizontalPosition: 'center',
       verticalPosition: 'top',
       panelClass: ['success-snackbar'],

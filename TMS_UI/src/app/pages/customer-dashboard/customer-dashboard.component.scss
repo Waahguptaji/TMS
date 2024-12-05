@@ -8,25 +8,198 @@
   background: var(--background);
 }
 
-.mascot-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+// login.component.scss
+.robot-container {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 2rem;
+}
+
+.robot {
+  position: relative;
+  width: 120px;
+  height: 180px;
+  animation: floating 3s ease-in-out infinite;
+}
+
+.head {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: var(--primary);
+  border-radius: 15px;
+  margin: 0 auto;
+}
+
+.eyes {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  top: 20px;
+}
+
+.eye {
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  animation: blink 3s infinite;
+}
+
+.antenna {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 15px;
+  background: var(--primary-light);
+}
+
+.body {
+  position: relative;
+  width: 80px;
+  height: 100px;
+  background: var(--primary);
+  border-radius: 20px;
+  margin: 10px auto 0;
+}
+
+.chest {
+  position: absolute;
+  width: 60%;
+  height: 20px;
+  background: var(--primary-light);
+  left: 20%;
+  top: 30px;
+  border-radius: 5px;
+}
+
+.arms {
+  position: absolute;
+  width: 100%;
+  top: 20px;
+}
+
+.arm {
+  position: absolute;
+  width: 20px;
+  height: 60px;
+  background: var(--primary);
+  border-radius: 10px;
+
+  &.left {
+    left: -25px;
+    transform-origin: top;
+    animation: waveLeft 2s ease-in-out infinite;
+  }
+
+  &.right {
+    right: -25px;
+    transform-origin: top;
+    animation: waveRight 2s ease-in-out infinite;
+  }
+}
+
+.speech-bubble {
+  position: absolute;
+  background: white;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  padding: 10px 15px;
+  max-width: 200px;
+  left: 60%;
+  top: 20%;
+  animation: fadeIn 0.5s ease-out;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right: 10px solid var(--primary);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.1);
+  }
+}
+
+@keyframes waveLeft {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+}
+
+@keyframes waveRight {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .robot {
+    width: 90px;
+    height: 135px;
+  }
+
+  .speech-bubble {
+    font-size: 14px;
+    max-width: 150px;
+  }
 }
 
 .delivery-guy {
   position: relative;
   width: 150px;
   height: 200px;
-  /* Add mascot styles or animations here */
 }
 
 .speech-bubble {
   position: absolute;
-  top: -10px;
-  left: 160px;
+  top: 0px;
+  right: 0px;
   background: white;
   border: 2px solid var(--border);
   border-radius: 0.5rem;
@@ -54,28 +227,34 @@
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
-  margin-top: 1.5rem;
-}
+  margin: 2rem 0;
 
-.stat-card {
-  background: white;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  box-shadow: var(--shadow);
-}
+  .stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
 
-.stat-number {
-  display: block;
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--primary);
-}
+    &:hover {
+      transform: translateY(-5px);
+    }
 
-.stat-label {
-  color: var(--text-light);
-  font-size: 1rem;
+    .stat-number {
+      display: block;
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+  }
 }
 
 /* Section Divider */

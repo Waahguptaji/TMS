@@ -17,7 +17,7 @@ export class CustomerDashboardComponent implements OnInit {
   cities: number = 50;
   onTimeDelivery: number = 95;
   customerSupport: string = '24/7';
-
+  robotMessage: string = 'Hello! Welcome back 👋';
 
   username: string = '';
 
@@ -39,7 +39,7 @@ export class CustomerDashboardComponent implements OnInit {
   }
 
   logout(): void {
-    localStorage.removeItem("isAuthenticated")
+    localStorage.removeItem('isAuthenticated');
     // localStorage.removeItem('username');
     this.router.navigate(['/customer-login']);
   }
