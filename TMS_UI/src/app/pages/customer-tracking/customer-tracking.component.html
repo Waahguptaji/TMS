@@ -1,0 +1,47 @@
+<app-customer-navbar></app-customer-navbar>
+
+<div class="tracking-container">
+    <div class="tracking-form">
+        <h2>Track Your Parcel</h2>
+        <div class="form-group">
+            <label for="bookingId">Booking ID</label>
+            <input type="text" id="bookingId" placeholder="Enter Booking ID" maxlength="7" required
+                [(ngModel)]="bookingIdInput" name="bookingId" />
+        </div>
+        <button type="button" (click)="trackParcel()" class="action-button">
+            Track Parcel
+        </button>
+        <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+        </div>
+    </div>
+
+    <div id="trackingResult" class="tracking-result" *ngIf="showResult && booking">
+        <h3>Tracking Details</h3>
+        <div class="tracking-details">
+            <div class="detail-row">
+                <span class="label">Booking ID:</span>
+                <span>{{ booking.bookingId }}</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Current Status:</span>
+                <span>{{ booking.status }}</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Booking Date:</span>
+                <span>{{ booking.bookingDate | date: 'medium' }}</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Expected Delivery:</span>
+                <span>{{ booking.expectedDeliveryDate | date: 'medium' }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

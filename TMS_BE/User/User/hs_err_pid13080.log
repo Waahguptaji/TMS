@@ -1,0 +1,219 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 201326592 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3469), pid=13080, tid=10008
+#
+# JRE version:  (17.0.1+12) (build )
+# Java VM: OpenJDK 64-Bit Server VM (17.0.1+12, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dmaven.home=EMBEDDED -Dclassworlds.conf=D:\Workspace2\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf15441428673295770264.tmp -Dmaven.multiModuleProjectDirectory=D:\Users\2730496\Downloads\User\User -Dfile.encoding=Cp1252 -XX:+ShowCodeDetailsInExceptionMessages org.codehaus.plexus.classworlds.launcher.Launcher -B spring-boot:run
+
+Host: Intel(R) Xeon(R) Gold 6154 CPU @ 3.00GHz, 4 cores, 11G,  Windows 10 , 64 bit Build 19041 (10.0.19041.4957)
+Time: Wed Dec  4 18:02:47 2024 India Standard Time elapsed time: 0.099335 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000018c9e068a00):  JavaThread "Unknown thread" [_thread_in_vm, id=10008, stack(0x000000190f600000,0x000000190f700000)]
+
+Stack: [0x000000190f600000,0x000000190f700000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6744da]
+V  [jvm.dll+0x82e144]
+V  [jvm.dll+0x82f8ee]
+V  [jvm.dll+0x82ff53]
+V  [jvm.dll+0x245175]
+V  [jvm.dll+0x6714c9]
+V  [jvm.dll+0x665f92]
+V  [jvm.dll+0x303c3b]
+V  [jvm.dll+0x30b176]
+V  [jvm.dll+0x35af1e]
+V  [jvm.dll+0x35b14f]
+V  [jvm.dll+0x2dab78]
+V  [jvm.dll+0x2dbae4]
+V  [jvm.dll+0x7ffdf1]
+V  [jvm.dll+0x368c91]
+V  [jvm.dll+0x7df2cc]
+V  [jvm.dll+0x3eb59f]
+V  [jvm.dll+0x3ed121]
+C  [jli.dll+0x5277]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17374]
+C  [ntdll.dll+0x4cc91]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffceb8e4e58, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x0000018c9e0ac150 GCTaskThread "GC Thread#0" [stack: 0x000000190f700000,0x000000190f800000] [id=1804]
+  0x0000018c9e0ba0a0 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000190f800000,0x000000190f900000] [id=8484]
+  0x0000018c9e0bb760 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000190f900000,0x000000190fa00000] [id=1248]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffceb0bb5f7]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000018c9e0633a0] Heap_lock - owner thread: 0x0000018c9e068a00
+
+Heap address: 0x0000000740000000, size: 3072 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+<Empty>
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x0000000740000000, 0x0000000800000000)
+  region size 2048K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffceb49d729]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (1 events):
+Event: 0.080 Loaded shared library D:\Users\2730496\Downloads\eclipse-jee\eclipse-jee\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.1.v20211116-1657\jre\bin\java.dll
+
+
+Dynamic libraries:
+0x00007ff6c44a0000 - 0x00007ff6c44ae000 	D:\Users\2730496\Downloads\eclipse-jee\eclipse-jee\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.1.v20211116-1657\jre\bin\javaw.exe
+0x00007ffd46250000 - 0x00007ffd46448000 	C:\windows\SYSTEM32\ntdll.dll
+0x00007ffd44bb0000 - 0x00007ffd44c72000 	C:\windows\System32\KERNEL32.DLL
+0x00007ffd438f0000 - 0x00007ffd43bee000 	C:\windows\System32\KERNELBASE.dll
+0x00007ffd43c90000 - 0x00007ffd43d90000 	C:\windows\System32\ucrtbase.dll
+0x00007ffd3d0c0000 - 0x00007ffd3d0d8000 	D:\Users\2730496\Downloads\eclipse-jee\eclipse-jee\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.1.v20211116-1657\jre\bin\jli.dll
+0x00007ffd45000000 - 0x00007ffd4519d000 	C:\windows\System32\USER32.dll
+0x00007ffd3d070000 - 0x00007ffd3d089000 	D:\Users\2730496\Downloads\eclipse-jee\eclipse-jee\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.1.v20211116-1657\jre\bin\VCRUNTIME140.dll
+0x00007ffd43e20000 - 0x00007ffd43e42000 	C:\windows\System32\win32u.dll
+0x00007ffd44fd0000 - 0x00007ffd44ffb000 	C:\windows\System32\GDI32.dll
+0x00007ffd43ed0000 - 0x00007ffd43fe7000 	C:\windows\System32\gdi32full.dll
+0x00007ffd43bf0000 - 0x00007ffd43c8d000 	C:\windows\System32\msvcp_win.dll
+0x00007ffd3b620000 - 0x00007ffd3b8ba000 	C:\windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.4355_none_60b8b9eb71f62e16\COMCTL32.dll
+0x00007ffd449d0000 - 0x00007ffd44a6e000 	C:\windows\System32\msvcrt.dll
+0x00007ffd44b50000 - 0x00007ffd44b7f000 	C:\windows\System32\IMM32.DLL
+0x0000018c9c7a0000 - 0x0000018c9c7b4000 	C:\windows\System32\umppc18721.dll
+0x00007ffd436f0000 - 0x00007ffd43726000 	C:\windows\system32\vmwsci.dll
+0x00007ffd44b80000 - 0x00007ffd44b88000 	C:\windows\System32\PSAPI.DLL
+0x00007ffd3dc60000 - 0x00007ffd3dc6c000 	D:\Users\2730496\Downloads\eclipse-jee\eclipse-jee\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.1.v20211116-1657\jre\bin\vcruntime140_1.dll
+0x00007ffd2fad0000 - 0x00007ffd2fb61000 	D:\Users\2730496\Downloads\eclipse-jee\eclipse-jee\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.1.v20211116-1657\jre\bin\msvcp140.dll
+0x00007ffceadd0000 - 0x00007ffceba16000 	D:\Users\2730496\Downloads\eclipse-jee\eclipse-jee\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.1.v20211116-1657\jre\bin\server\jvm.dll
+0x00007ffd44480000 - 0x00007ffd44532000 	C:\windows\System32\ADVAPI32.dll
+0x00007ffd44ed0000 - 0x00007ffd44f70000 	C:\windows\System32\sechost.dll
+0x00007ffd45730000 - 0x00007ffd45853000 	C:\windows\System32\RPCRT4.dll
+0x00007ffd43e50000 - 0x00007ffd43e77000 	C:\windows\System32\bcrypt.dll
+0x00007ffd326b0000 - 0x00007ffd326b9000 	C:\windows\SYSTEM32\WSOCK32.dll
+0x00007ffd44d90000 - 0x00007ffd44dfb000 	C:\windows\System32\WS2_32.dll
+0x00007ffd33960000 - 0x00007ffd33987000 	C:\windows\SYSTEM32\WINMM.dll
+0x00007ffd42610000 - 0x00007ffd4261a000 	C:\windows\SYSTEM32\VERSION.dll
+0x00007ffd425c0000 - 0x00007ffd425d2000 	C:\windows\SYSTEM32\kernel.appcore.dll
+0x00007ffd2b900000 - 0x00007ffd2b90a000 	D:\Users\2730496\Downloads\eclipse-jee\eclipse-jee\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.1.v20211116-1657\jre\bin\jimage.dll
+0x00007ffd41100000 - 0x00007ffd412e4000 	C:\windows\SYSTEM32\DBGHELP.DLL
+0x00007ffd3b390000 - 0x00007ffd3b3c4000 	C:\windows\SYSTEM32\dbgcore.DLL
+0x00007ffd43d90000 - 0x00007ffd43e12000 	C:\windows\System32\bcryptPrimitives.dll
+0x00007ffd2b770000 - 0x00007ffd2b795000 	D:\Users\2730496\Downloads\eclipse-jee\eclipse-jee\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.1.v20211116-1657\jre\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;D:\Users\2730496\Downloads\eclipse-jee\eclipse-jee\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.1.v20211116-1657\jre\bin;C:\windows\SYSTEM32;C:\windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.4355_none_60b8b9eb71f62e16;D:\Users\2730496\Downloads\eclipse-jee\eclipse-jee\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.1.v20211116-1657\jre\bin\server
+
+VM Arguments:
+jvm_args: -Dmaven.home=EMBEDDED -Dclassworlds.conf=D:\Workspace2\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf15441428673295770264.tmp -Dmaven.multiModuleProjectDirectory=D:\Users\2730496\Downloads\User\User -Dfile.encoding=Cp1252 -XX:+ShowCodeDetailsInExceptionMessages 
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher -B spring-boot:run
+java_class_path (initial): D:\Users\2730496\Downloads\eclipse-jee\eclipse-jee\plugins\org.eclipse.m2e.maven.runtime_1.18.1.20211011-2139\jars\plexus-classworlds-2.6.0.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 1                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 4                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 201326592                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 3221225472                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5832780                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122912730                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122912730                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool ShowCodeDetailsInExceptionMessages       = true                                   {manageable} {command line}
+   size_t SoftMaxHeapSize                          = 3221225472                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=D:/Users/2730496/Downloads/eclipse-jee/eclipse-jee//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.1.v20211116-1657/jre/bin/server;D:/Users/2730496/Downloads/eclipse-jee/eclipse-jee//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.1.v20211116-1657/jre/bin;C:\Python312\Scripts\;C:\Python312\;C:\Program Files\Eclipse Adoptium\jdk-8.0.345.1-hotspot\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\TortoiseSVN\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\Git\cmd;C:\Program Files (x86)\PuTTY\;C:\Program Files\nodejs\;C:\Program Files\Microsoft VS Code\bin;D:\Users\2730496\AppData\Local\Microsoft\WindowsApps;;D:\Users\2730496\Downloads\eclipse-jee\eclipse-jee;
+USERNAME=2730496
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 85 Stepping 4, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.4957)
+OS uptime: 0 days 8:39 hours
+VMWare virtualization detected
+
+CPU: total 4 (initial active 4) (2 cores per cpu, 1 threads per core) family 6 model 85 stepping 4 microcode 0x2007006, cx8, cmov, fxsr, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, fma, vzeroupper, clflush, clflushopt, clwb, hv
+
+Memory: 4k page, system-wide physical 12287M (522M free)
+TotalPageFile size 12798M (AvailPageFile size 182M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 51M, peak: 243M
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.1+12) for windows-amd64 JRE (17.0.1+12), built on Oct 20 2021 07:42:55 by "" with MS VC++ 16.7 (VS2019)
+
+END.

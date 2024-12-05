@@ -1,0 +1,115 @@
+
+.support-container {
+    max-width: 1000px;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+  }
+  
+  .support-container h1 {
+    color: var(--text);
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  
+  .support-card {
+    background: var(--surface);
+    padding: 2.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+  }
+  
+  .contact-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .contact-item {
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: var(--primary);
+  }
+  
+  .contact-item .icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-item h3 {
+    color: var(--text);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-item p {
+    color: var(--text-light);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-item:last-child {
+    grid-column: 1 / -1;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .support-hours {
+    text-align: center;
+    padding-top: 2.5rem;
+    margin-top: 2.5rem;
+    border-top: 1px solid var(--border);
+  }
+  
+  .support-hours h3 {
+    color: var(--text);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .support-hours p {
+    color: var(--text-light);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 768px) {
+    .support-container {
+      padding: 1.5rem;
+      margin-top: 5rem;
+    }
+  
+    .support-card {
+      padding: 1.5rem;
+    }
+  
+    .contact-info {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  
+    .contact-item {
+      padding: 1.5rem;
+    }
+  
+    .contact-item:last-child {
+      grid-column: auto;
+      max-width: none;
+    }
+  }
+  

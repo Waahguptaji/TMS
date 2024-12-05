@@ -1,0 +1,162 @@
+<!-- src/app/pages/registration/registration.component.html -->
+<div class="auth-container registration-container">
+    <div class="auth-header">
+        <h1>📦 TMS</h1>
+        <p>Customer Registration</p>
+    </div>
+
+    <form #registrationForm="ngForm" (ngSubmit)="handleRegistration(registrationForm)">
+        <!-- 1. Personal Information -->
+        <div class="form-section">
+            <h2>1. Personal Information</h2>
+
+            <!-- Customer Name -->
+            <div class="form-group">
+                <label for="customerName">Customer Name</label>
+                <input type="text" id="customerName" name="customerName" class="form-control" maxlength="50"
+                    placeholder="Enter your full name" [(ngModel)]="customerName" #customerNameRef="ngModel" required />
+                <span class="error-message" *ngIf="customerNameRef.invalid && customerNameRef.touched">
+                    Customer Name is required (max 50 characters).
+                </span>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email"
+                    [(ngModel)]="email" #emailRef="ngModel" required email />
+                <span class="error-message" *ngIf="emailRef.invalid && emailRef.touched">
+                    A valid email is required.
+                </span>
+            </div>
+
+            <!-- Mobile Number -->
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <div class="mobile-input-group">
+                    <select class="form-control country-code" id="countryCode" name="countryCode"
+                        [(ngModel)]="countryCode">
+                        <option value="+1">+1 (USA)</option>
+                        <option value="+44">+44 (UK)</option>
+                        <option value="+91">+91 (India)</option>
+                        <option value="+61">+61 (Australia)</option>
+                        <option value="+86">+86 (China)</option>
+                    </select>
+                    <input type="tel" id="mobile" name="mobile" [(ngModel)]="mobileNumber" #mobileRef="ngModel" maxlength="10" required
+                        pattern="[0-9]{10}" class="form-control" />
+                </div>
+                <span class="error-message" *ngIf="mobileRef.invalid && mobileRef.touched">
+                    Please enter a valid 10-digit mobile number
+                </span>
+            </div>
+
+            <!-- Mailing Address -->
+            <div class="form-group">
+                <label for="address">Mailing Address</label>
+                <textarea id="address" name="address" class="form-control" rows="3"
+                    placeholder="Enter your complete mailing address with ZIP code" [(ngModel)]="mailingAddress"
+                    #addressRef="ngModel" required></textarea>
+                <span class="error-message" *ngIf="addressRef.invalid && addressRef.touched">
+                    Address is required.
+                </span>
+            </div>
+        </div>
+
+        <!-- 2. Account Credentials -->
+        <div class="form-section">
+            <h2>2. Account Credentials</h2>
+
+            <!-- User ID -->
+            <div class="form-group">
+                <label for="userId">User Name</label>
+                <input type="text" id="userId" name="userId" class="form-control" minlength="5" maxlength="20"
+                    placeholder="Choose a User Name(5-20 characters)" [(ngModel)]="username" #userIdRef="ngModel"
+                    required />
+                <span class="error-message" *ngIf="userIdRef.invalid && userIdRef.touched">
+                    User Name is required (5-20 characters).
+                </span>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" maxlength="30"
+                    placeholder="Choose a strong password" [(ngModel)]="password" #passwordRef="ngModel" required />
+                <div class="password-requirements">
+                    Must contain:
+                    <ul>
+                        <li>At least 8 characters</li>
+                        <li>One uppercase letter</li>
+                        <li>One lowercase letter</li>
+                        <li>One special character</li>
+                    </ul>
+                </div>
+                <span class="error-message" *ngIf="passwordRef.invalid && passwordRef.touched">
+                    Password is required.
+                </span>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" maxlength="30"
+                    placeholder="Re-enter your password" [(ngModel)]="confirmPassword" #confirmPasswordRef="ngModel"
+                    required />
+                <span class="error-message" *ngIf="confirmPasswordRef.invalid && confirmPasswordRef.touched">
+                    Please confirm your password.
+                </span>
+            </div>
+        </div>
+
+        <!-- 3. Preferences -->
+        <div class="form-section">
+            <h2>3. Preferences</h2>
+
+<!-- 
+            <div class="form-group">
+                <label>Delivery Notifications</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="emailNotif" [(ngModel)]="emailNotif" />
+                        Email Notifications
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="smsNotif" [(ngModel)]="smsNotif" />
+                        SMS Notifications
+                    </label>
+                </div>
+            </div> -->
+
+            <!-- Preferred Delivery Time -->
+            <div class="form-group">
+                <label for="deliveryPreference">Preferred Delivery Time</label>
+                <select id="deliveryPreference" name="deliveryPreference" class="form-control"
+                    [(ngModel)]="preferredDeliveryTime">
+                    <option value="morning">Morning (9 AM - 12 PM)</option>
+                    <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
+                    <option value="evening">Evening (5 PM - 8 PM)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        <div id="success-message" class="success-message"></div>
+
+        <!-- Form Buttons -->
+        <div class="form-buttons">
+            <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid">
+                Register
+            </button>
+            <button type="reset" class="btn btn-secondary">
+                Reset
+            </button>
+        </div>
+    </form>
+
+    <div class="auth-links">
+        <p>
+            Already have an account?
+            <a routerLink="/customer-login">Login here</a>
+        </p>
+    </div>
+</div>

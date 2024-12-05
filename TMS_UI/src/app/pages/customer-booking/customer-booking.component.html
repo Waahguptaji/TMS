@@ -1,0 +1,164 @@
+<app-customer-navbar></app-customer-navbar>
+<div class="booking-container">
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()" class="booking-form">
+        <div class="form-section">
+            <h2>Sender Details</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="senderName">Name</label>
+                    <input type="text" id="senderName" formControlName="senderName" required>
+                    <div class="error"
+                        *ngIf="bookingForm.get('senderName')?.invalid && bookingForm.get('senderName')?.touched">
+                        Sender name is required.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="senderContact">Contact Number</label>
+                    <input type="tel" id="senderContact" formControlName="senderContact" required>
+                    <div class="error"
+                        *ngIf="bookingForm.get('senderContact')?.invalid && bookingForm.get('senderContact')?.touched">
+                        Enter a valid 10-digit contact number.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="senderAddress">Address</label>
+                <textarea id="senderAddress" formControlName="senderAddress" required></textarea>
+                <div class="error"
+                    *ngIf="bookingForm.get('senderAddress')?.invalid && bookingForm.get('senderAddress')?.touched">
+                    Sender address is required.
+                </div>
+            </div>
+        </div>
+
+        <!-- Receiver Details -->
+        <div class="form-section">
+            <h2>Receiver Details</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="receiverName">Name</label>
+                    <input type="text" id="receiverName" formControlName="receiverName" required>
+                    <div class="error"
+                        *ngIf="bookingForm.get('receiverName')?.invalid && bookingForm.get('receiverName')?.touched">
+                        Receiver name is required.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="receiverContact">Contact Number</label>
+                    <input type="tel" id="receiverContact" formControlName="receiverContact" required>
+                    <div class="error"
+                        *ngIf="bookingForm.get('receiverContact')?.invalid && bookingForm.get('receiverContact')?.touched">
+                        Enter a valid 10-digit contact number.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="receiverAddress">Address</label>
+                <textarea id="receiverAddress" formControlName="receiverAddress" required></textarea>
+                <div class="error"
+                    *ngIf="bookingForm.get('receiverAddress')?.invalid && bookingForm.get('receiverAddress')?.touched">
+                    Receiver address is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="receiverPin">PIN Code</label>
+                <input type="text" id="receiverPin" formControlName="receiverPin" required>
+                <div class="error"
+                    *ngIf="bookingForm.get('receiverPin')?.invalid && bookingForm.get('receiverPin')?.touched">
+                    Enter a valid 6-digit PIN code.
+                </div>
+            </div>
+        </div>
+
+        <!-- Parcel Details -->
+        <div class="form-section">
+            <h2>Parcel Details</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="weight">Weight (in grams)</label>
+                    <input type="number" id="weight" formControlName="weight" min="1" required>
+                    <div class="error" *ngIf="bookingForm.get('weight')?.invalid && bookingForm.get('weight')?.touched">
+                        Enter a valid weight.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" formControlName="description" required></textarea>
+                    <div class="error"
+                        *ngIf="bookingForm.get('description')?.invalid && bookingForm.get('description')?.touched">
+                        Description is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="packaging">Packaging Type</label>
+                    <select id="packaging" formControlName="packaging" required>
+                        <option value="standard">Standard</option>
+                        <option value="custom">Custom</option>
+                        <option value="eco">Eco-Friendly</option>
+                        <option value="fragile">Fragile</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="deliverySpeed">Delivery Speed</label>
+                    <select id="deliverySpeed" formControlName="deliverySpeed" required>
+                        <option value="standard">Standard</option>
+                        <option value="express">Express</option>
+                        <option value="priority">Priority</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pick-Up Details -->
+        <div class="form-section">
+            <h2>Pick-Up Details</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="pickupDate">Pick-Up Date</label>
+                    <input type="date" id="pickupDate" formControlName="pickupDate" required>
+                    <div class="error" *ngIf="bookingForm.get('pickupDate')?.invalid && bookingForm.get('pickupDate')?.touched">
+                        Pick-up date is required.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pickupTime">Pick-Up Time</label>
+                    <input type="time" id="pickupTime" formControlName="pickupTime" required>
+                    <div class="error" *ngIf="bookingForm.get('pickupTime')?.invalid && bookingForm.get('pickupTime')?.touched">
+                        Pick-up time is required.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cost Summary -->
+        <div class="form-section">
+            <h2>Cost Summary</h2>
+            <div class="cost-summary">
+                <div class="cost-item">
+                    <span>Base Charge:</span>
+                    <span id="baseCharge">₹0.00</span>
+                </div>
+                <div class="cost-item">
+                    <span>Packaging Charge:</span>
+                    <span id="packagingCharge">₹0.00</span>
+                </div>
+                <div class="cost-item">
+                    <span>Delivery Charge:</span>
+                    <span id="deliveryCharge">₹0.00</span>
+                </div>
+                <div class="cost-item total">
+                    <span>Total Cost:</span>
+                    <span id="totalCost">₹0.00</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-group">
+            <button type="button" class="btn btn-secondary" (click)="resetForm()">Reset</button>
+            <button type="submit" class="btn btn-primary">Book Parcel</button>
+        </div>
+    </form>
+</div>
